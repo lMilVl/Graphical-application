@@ -2,7 +2,7 @@
 #include "ui_dialog.h"
 #include <QDebug>
 #include "../Lesson1/lab1.h"
-#include "QMessageBox.h"
+#include <QMessageBox>
 
 
 Dialog::Dialog(QWidget *parent)
