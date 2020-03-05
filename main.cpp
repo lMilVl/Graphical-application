@@ -1,4 +1,5 @@
 #include "dialog.h"
+#include "lesson4.h"
 
 #include <QApplication>
 

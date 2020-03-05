@@ -16,7 +16,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    ../Lesson1/lab1.cpp \
     main.cpp \
     dialog.cpp
 
@@ -34,3 +33,16 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 CONFIG(release, debug|release) { BUILDTYPE = release }
 CONFIG(debug, debug|release) { BUILDTYPE = debug }
 QMAKE_POST_LINK = windeployqt $$shell_quote($${OUT_PWD}/$${BUILDTYPE}/$${TARGET}.exe)
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/release/ -lLesson4
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/debug/ -lLesson4
+else:unix: LIBS += -L$$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/ -lLesson4
+
+INCLUDEPATH += $$PWD/../Lesson4
+DEPENDPATH += $$PWD/../Lesson4
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/release/libLesson4.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/debug/libLesson4.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/release/Lesson4.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/debug/Lesson4.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/libLesson4.a
