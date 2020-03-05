@@ -3,6 +3,9 @@
 #include <QDebug>
 #include "../Lesson1/lab1.h"
 #include <QMessageBox>
+#include <sstream>
+#include <iostream>
+#include <cstdlib>
 
 
 Dialog::Dialog(QWidget *parent)
@@ -19,6 +22,7 @@ Dialog::~Dialog()
 
 void Dialog::calculate() {
 
+
     bool isAOK, isBOK;
 
     int a = ui->lineEditA->text().toInt(&isAOK);
@@ -31,6 +35,22 @@ void Dialog::calculate() {
         QMessageBox::critical(this, "Ошибка", "А должно быть числом");
         return;
     }
+    if(a < 0)
+    {
+        QMessageBox::critical(this, "Ошибка", "А должно быть положительным числом");
+        return;
+    }
+    if(b < 0)
+    {
+        QMessageBox::critical(this, "Ошибка", "B должно быть положительным числом");
+        return;
+    }
+    if(a > b)
+    {
+        QMessageBox::critical(this, "Ошибка", "А должно быть меньше B");
+        return;
+    }
+
     // Вызов функции получения списка простых чисел
 
     for(int n: ListOfPrimeNumbers(a, b)) {
