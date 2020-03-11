@@ -1,7 +1,7 @@
 #include "dialog.h"
 #include "ui_dialog.h"
 #include <QDebug>
-#include "../Lesson1/lab1.h"
+#include "lesson4.h"
 #include <QMessageBox>
 #include <sstream>
 #include <iostream>
