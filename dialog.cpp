@@ -28,7 +28,7 @@ void Dialog::calculate() {
         return;
     }
     if(!isBOK) {
-        QMessageBox::critical(this, "Ошибка", "А должно быть числом");
+        QMessageBox::critical(this, "Ошибка", "B должно быть числом");
         return;
     }
     if(a < 0)

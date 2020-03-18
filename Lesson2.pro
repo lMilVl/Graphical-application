@@ -29,9 +29,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-CONFIG(release, debug|release) { BUILDTYPE = release }
-CONFIG(debug, debug|release) { BUILDTYPE = debug }
-QMAKE_POST_LINK = windeployqt $$shell_quote($${OUT_PWD}/$${BUILDTYPE}/$${TARGET}.exe)
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/release/ -lLesson4
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-Lesson4-Desktop_Qt_5_14_1_MSVC2017_64bit-All/debug/ -lLesson4
