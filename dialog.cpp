@@ -3,10 +3,6 @@
 #include <QDebug>
 #include "lesson4.h"
 #include <QMessageBox>
-#include <sstream>
-#include <iostream>
-#include <cstdlib>
-
 
 Dialog::Dialog(QWidget *parent)
     : QDialog(parent)

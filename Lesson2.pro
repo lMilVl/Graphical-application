@@ -20,7 +20,6 @@ SOURCES += \
     dialog.cpp
 
 HEADERS += \
-    ../Lesson1/lab1.h \
     dialog.h
 
 FORMS += \
